@@ -28,3 +28,21 @@ function draw(e) {
     [lastX, lastY] = [e.offsetX, e.offsetY];
     
     hue++;
+if (hue >= 360) {
+   hue = 0;     
+    }
+    if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+        direction = !direction;
+    }
+
+    if (direction) {
+        ctx.lineWidth++; 
+    } else{
+        ctx.lineWidth--;
+    }
+}
+
+canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+    [lastX, lastY ] = [e.offsetX, e.offsetY];
+});
